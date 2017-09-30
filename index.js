@@ -13,7 +13,7 @@ var errorHandler = require('errorhandler')
 
 // all environments
 // server.listen(3000);
-app.set('port', process.env.PORT || 80)
+app.set('port', process.env.PORT || 3000)
 app.set('views', __dirname, '/views')
 app.set('view engine', 'pug')
 // app.set('view engine', 'jade');
