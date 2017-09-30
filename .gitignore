@@ -1,0 +1,6 @@
+.openode
+bin/
+express
+express.cmd
+node_modules/
+npm-debug.log
