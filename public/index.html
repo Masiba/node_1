@@ -1,34 +1,33 @@
 <html>
 <head>
-<title>Chat with socket.io</title>
-<style>
-#chat {
-height: 100px;
-}
-</style>
-<script src="/javascripts/jquery.min.js"></script> 
-<script src= 'http://http://41.59.225.85:12345/socket.io/socket.io.js' ></script> 
+	<title>Chat with socket.io</title>
+	<style>
+		#chat {
+			height: 100px;
+		}
+	</style>
 </head>
 <body>
 <div id ='chat'></div>
 <form id ='msgForm'>
-Message: <input type= "text" size="35" id="msg"></input>
-<input type = "submit" value="submit"></input>
-</form>  
-
+	Message: <input type= "text" size="35" id="msg">
+	<input type = "submit" value="submit">
+</form>
+<script src="/javascripts/jquery.min.js"></script>
+<script src= 'http://41.59.225.85:12345/socket.io/socket.io.js' ></script>
 <script>
-$(function($){  
-var socket = io.connect(); 
+	$(function($){
+		var socket = io.connect();
 
-    $('#msgForm').submit(function(e){ 
-		e.preventDefault();
-		socket.emit('send message' ,$('#msg').val());
-		$('#msg').val('');
-    });
-	socket.on('new message', function(data){ 
-		$('#chat').append(data + "<br/>");
+		$('#msgForm').submit(function(e){
+			e.preventDefault();
+			socket.emit('send message' ,$('#msg').val());
+			$('#msg').val('');
+		});
+		socket.on('new message', function(data){
+			$('#chat').append(data + "<br/>");
+		});
 	});
-});
 </script>
 </body>
 </html>
